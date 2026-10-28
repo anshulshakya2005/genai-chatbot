@@ -2,17 +2,7 @@ import streamlit as st
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
-import os
-from dotenv import load_dotenv
-load_dotenv()
-os.environ["GROQ_API_KEY"] = os.getenv("GROQ_API_KEY")
-os.environ["LANGSMITH_API_KEY"] = os.getenv("LANGSMITH_API_KEY")
-os.environ["LANGSMITH_TRACING"] = "true"
-os.environ["LANGSMITH_PROJECT"] = "chatbot"
-os.environ["LANGSMITH_ENDPOINT"] = (
-    "https://apac.api.smith.langchain.com"
-)
-
+ 
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system","you are an helpful assistent , response on the user's queries in a detailed manner."),
